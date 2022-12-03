@@ -14,15 +14,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3 
-    - run: echo "$GITHUB_CONTEXT"
+    # - run: echo "$GITHUB_CONTEXT"
     # - name: Build the Docker image
     #   run: docker build products/. --file "products/Dockerfile" --tag nols-products:$(date +%s)
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v2.1.0
       with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        username: "${{ secrets.DOCKERHUB_USERNAME }}"
+        password: "${{ secrets.DOCKERHUB_PASSWORD }}"
         
 
     - name: Extract metadata (tags, labels) for Docker
