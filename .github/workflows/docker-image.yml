@@ -25,9 +25,8 @@ jobs:
         name: nmdsmartins/nols-products
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_ACCESSTOKEN }}
+        tag_semver: true
         context: products
-        tags: "latest,${{ steps.pre-step.outputs.release-version }}"
-        # tag_semver: true
     # - uses: actions/checkout@v3 
     # - name: Build the Docker image
     #   run: docker build products/. --file "products/Dockerfile" --tag nols-products:$(date +%s)
