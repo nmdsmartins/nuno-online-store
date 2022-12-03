@@ -29,11 +29,12 @@ jobs:
       uses: docker/metadata-action@v4.1.1
       with:
         images: nmdsmartins/nols-products
-      
+        run: echo ${{ steps.meta.outputs }}
+
     - name: Build and push Docker image
       uses: docker/build-push-action@v3.2.0
       with:
         context: products/.
         push: true
-        tags: ndmsmartins/nols-products:latest
+        tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
