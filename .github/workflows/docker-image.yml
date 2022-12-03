@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3 
-    - run: echo ${{ secrets.DOCKERHUB_USERNAME }}
+    - run: echo "$GITHUB_CONTEXT"
     # - name: Build the Docker image
     #   run: docker build products/. --file "products/Dockerfile" --tag nols-products:$(date +%s)
 
