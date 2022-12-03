@@ -36,5 +36,5 @@ jobs:
       with:
         context: products/.
         push: true
-        tags: ${{ steps.meta.outputs.tags }}
+        tags: nmdsmartins/nols-products:${{ github.run_number }}
         labels: ${{ steps.meta.outputs.labels }}
