@@ -35,5 +35,5 @@ jobs:
       with:
         context: products/.
         push: true
-        tags: ${{ steps.meta.outputs.tags }}
+        tags: 1.0.${{ context.runNumber }}
         labels: ${{ steps.meta.outputs.labels }}
