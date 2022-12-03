@@ -27,7 +27,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v4.1.1
       with:
-        images: nmdsmartins/nols-products
+        images: nmdsmartins/nols-products:$(date +%s)
       
     - name: Build and push Docker image
       uses: docker/build-push-action@v3.2.0
