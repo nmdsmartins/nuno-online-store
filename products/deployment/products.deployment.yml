@@ -9,7 +9,7 @@ spec:
   template:
     metadata:
       labels:
-        app: nols-products-ms
+        app: nols-products-ms 
     spec:
       containers:
       - name: nols-products-ms
