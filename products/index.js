@@ -15,6 +15,6 @@ app.get("/", (req, res, next) => {
     next();
 });
 
-app.listen(3001, () => {
-    console.log("Server running on port 3001, wating for requests....");
+app.listen(3090, () => {
+    console.log("Server running on port 3090, wating for requests....");
 });
