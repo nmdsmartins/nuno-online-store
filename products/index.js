@@ -10,7 +10,8 @@ app.get("/", (req, res, next) => {
         headers: req.headers,
         query: req.query    ,
         cookies: req.cookies,
-        mongodbUrl: process.env.DB_URL ?? "not found"
+        mongodbUrl: process.env.DB_URL ?? "not found",
+        change: "1.1"
     });
     next();
 });
