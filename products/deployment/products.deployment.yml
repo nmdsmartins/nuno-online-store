@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nols-products-ms
+spec:
+  selector:
+    matchLabels:
+      app: nols-products-ms
+  template:
+    metadata:
+      labels:
+        app: nols-products-ms
+    spec:
+      containers:
+      - name: nols-products-ms
+        image: nmdsmartins/nols-products:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3090
