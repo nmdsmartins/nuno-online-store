@@ -35,9 +35,10 @@ jobs:
     needs: build
     
     steps:
+      - uses: actions/checkout@v3
       - uses: sumup-bank/run-credo@v1
         with:
-          repository: git@github.com:nmdsmartins/nuno-online-store.git
+          repository: nmdsmartins/nuno-online-store
           filepath: products/deployment/products.deployment.yml
           yamlpath: .spec.template.spec.containers[0].image
           newvalue: nmdsmartins/nols-products:1.0.${{ github.run_number }}
