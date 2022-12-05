@@ -12,7 +12,7 @@ on:
   #     - "products/**"
 
 jobs:
-
+  
   build:
 
     runs-on: ubuntu-latest
@@ -28,27 +28,16 @@ jobs:
         password: ${{ secrets.DOCKERHUB_ACCESSTOKEN }}
         tags: "1.0.${{ github.run_number }},latest"
         context: products
-    # - uses: actions/checkout@v3 
-    # - name: Build the Docker image
-    #   run: docker build products/. --file "products/Dockerfile" --tag nols-products:$(date +%s)
 
-    # - name: Log in to Docker Hub
-    #   uses: docker/login-action@v2.1.0
-    #   with:
-    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-    #     password: ${{ secrets.DOCKERHUB_ACCESSTOKEN }}
-        
-    # - name: Extract metadata (tags, labels) for Docker
-    #   id: meta
-    #   uses: docker/metadata-action@v4.1.1
-    #   with:
-    #     images: nmdsmartins/nols-products
-    #     run: echo ${{ steps.meta.outputs }}
+  deployment:
 
-    # - name: Build and push Docker image
-    #   uses: docker/build-push-action@v3.2.0
-    #   with:
-    #     context: products/.
-    #     push: true
-    #     tags: nmdsmartins/nols-products:1.0.${{ github.run_number }}
-    #     labels: ${{ steps.meta.outputs.labels }}
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+      - uses: sumup-bank/run-credo@v1
+        with:
+          repository: nmdsmartins/nuno-online-store
+          filepath: products/deployment/products.deployment.yaml
+          yamlpath: .spec.template.spec.containers[0].image
+          newvalue: nmdsmartins/nols-products:1.0.${{ github.run_number }}
