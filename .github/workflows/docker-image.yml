@@ -6,9 +6,9 @@ env:
 on:
   push:
     branches: [ "main" ]
-    # paths:
-    #   - "products/**"
-    #   - "!products/deployment/**"
+    paths:
+      - "products/**"
+      - "!products/deployment/**"
   # pull_request:
   #   branches: [ "main" ]
   #   paths:
@@ -44,6 +44,6 @@ jobs:
         with:
           valueFile: 'products/deployment/products.deployment.yml'
           propertyPath: 'spec.template.spec.containers.0.image'
-          value: nmdsmartins/nols-products:$DEPLOYMENT_VERSION
+          value: nmdsmartins/nols-products:${DEPLOYMENT_VERSION}
           branch: main
-          message: Deployment updated to versio $DEPLOYMENT_VERSION 
+          message: Deployment updated to versio ${DEPLOYMENT_VERSION}
