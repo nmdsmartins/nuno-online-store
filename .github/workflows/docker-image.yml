@@ -39,4 +39,4 @@ jobs:
       - name: Set foobar to cool
         uses: mikefarah/yq@master
         with:
-          cmd: yq -i 'spec.template.spec.containers.0.image = "nmdsmartins/nols-products:1.0.${{ github.run_number }}"' 'products/deployment/products.deployment.yml'
+          cmd: yq -i '.spec.template.spec.containers.0.image = "nmdsmartins/nols-products:1.0.${{ github.run_number }}"' 'products/deployment/products.deployment.yml'
