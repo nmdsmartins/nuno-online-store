@@ -9,14 +9,14 @@ spec:
   template:
     metadata:
       labels:
-        app: nols-products-ms 
+        app: nols-products-ms
     spec:
       containers:
-      - name: nols-products-ms
-        image: nmdsmartins/nols-products:1.0.50
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 3090
+        - name: nols-products-ms
+          image: nmdsmartins/nols-products:1.0.70
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: 500m
+          ports:
+            - containerPort: 3090
