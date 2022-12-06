@@ -3,9 +3,9 @@ name: Products MS Push to Docker
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - "products/**"
-      - "!products/deployment/**"
+    # paths:
+    #   - "products/**"
+    #   - "!products/deployment/**"
   # pull_request:
   #   branches: [ "main" ]
   #   paths:
@@ -36,19 +36,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-      - uses: fjogeleit/yaml-update-action@main
+      - name: Set foobar to cool
+        uses: mikefarah/yq@master
         with:
-          valueFile: 'products.deployment.yml'
-          workDir: "products/deployment"
-          propertyPath: '.spec.template.spec.containers[0].image'
-          value: nmdsmartins/nols-products:1.0.${{ github.run_number }}
-          commitChange: true
-
-      # - uses: sumup-bank/run-credo@v1
-      #   with:
-      #     repository: nmdsmartins/nuno-online-store
-      #     filepath: products/deployment/products.deployment.yml
-      #     yamlpath: .spec.template.spec.containers[0].image
-      #     newvalue: nmdsmartins/nols-products:1.0.${{ github.run_number }}
-      #     token: ${{ secrets.DOCKERHUB_ACCESSTOKEN }}
-      #     ref: main
+          cmd: yq -i '.spec.template.spec.containers[0].image = "nmdsmartins/nols-products:1.0.${{ github.run_number }}"' 'products/deployment/products.deployment.yml'
