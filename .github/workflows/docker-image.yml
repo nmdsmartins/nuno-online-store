@@ -39,7 +39,7 @@ jobs:
         with:
           valueFile: 'products.deployment.yml'
           workDir: "products/deployment"
-          propertyPath: '.spec.template.spec.containers[0].image'
+          propertyPath: 'file.spec.template.spec.containers[0].image'
           value: nmdsmartins/nols-products:1.0.${{ github.run_number }}
           commitChange: true
 
