@@ -1,5 +1,8 @@
 name: Products MS Push to Docker
 
+env:
+  DEPLOYMENT_VERSION: 1.0.${{ github.run_number }}
+
 on:
   push:
     branches: [ "main" ]
@@ -35,11 +38,12 @@ jobs:
     needs: build
     
     steps:
-      - uses: actions/checkout@v3
+      # - uses: actions/checkout@v3
       - name: Update values.yaml
         uses: fjogeleit/yaml-update-action@main
         with:
           valueFile: 'products/deployment/products.deployment.yml'
           propertyPath: 'spec.template.spec.containers.0.image'
-          value: nmdsmartins/nols-products:1.0.${{ github.run_number }}
+          value: nmdsmartins/nols-products:$DEPLOYMENT_VERSION
           branch: main
+          message: Deployment updated to versio $DEPLOYMENT_VERSION 
