@@ -35,11 +35,19 @@ jobs:
     needs: build
     
     steps:
-      - uses: sumup-bank/run-credo@v1
+      - uses: fjogeleit/yaml-update-action@main
         with:
-          repository: nmdsmartins/nuno-online-store
-          filepath: products/deployment/products.deployment.yml
-          yamlpath: .spec.template.spec.containers[0].image
-          newvalue: nmdsmartins/nols-products:1.0.${{ github.run_number }}
-          token: ${{ secrets.DOCKERHUB_ACCESSTOKEN }}
-          ref: main
+          valueFile: 'products.deployment.yml'
+          workDir: "products/deployment"
+          propertyPath: '.spec.template.spec.containers[0].image'
+          value: nmdsmartins/nols-products:1.0.${{ github.run_number }}
+          commitChange: true
+
+      # - uses: sumup-bank/run-credo@v1
+      #   with:
+      #     repository: nmdsmartins/nuno-online-store
+      #     filepath: products/deployment/products.deployment.yml
+      #     yamlpath: .spec.template.spec.containers[0].image
+      #     newvalue: nmdsmartins/nols-products:1.0.${{ github.run_number }}
+      #     token: ${{ secrets.DOCKERHUB_ACCESSTOKEN }}
+      #     ref: main
