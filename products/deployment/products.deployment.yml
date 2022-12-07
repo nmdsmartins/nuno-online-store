@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: nols-products-ms
-          image: nmdsmartins/nols-products:1.0.76
+          image: nmdsmartins/nols-products:1.0.77
           resources:
             limits:
               memory: 128Mi
