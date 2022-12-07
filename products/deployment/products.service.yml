@@ -10,4 +10,4 @@ spec:
   - protocol: TCP
     port: 3090
     targetPort: 3090
-    nodePort: 8086
+    nodePort: 30001
