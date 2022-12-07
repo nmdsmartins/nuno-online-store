@@ -22,7 +22,12 @@ app.get("/", (req, res, next) => {
              },
              { 
                 id: 4,
-                name: "Leite",
+                name: "Leite Magro",
+                brand: "Pingo Doce"
+             },
+             { 
+                id: 5,
+                name: "Margarina",
                 brand: "Pingo Doce"
              }
         ]
