@@ -8,3 +8,4 @@ spec:
   ports:
   - port: 3090
     targetPort: 3090
+    nodePort: 3090
