@@ -3,15 +3,24 @@ const app = express();
 
 app.get("/", (req, res, next) => {
     res.json({
-        baseUrl: req.baseUrl,
-        url: req.url,
-        method: req.method,
-        path: req.path,
-        headers: req.headers,
-        query: req.query    ,
-        cookies: req.cookies,
-        mongodbUrl: process.env.DB_URL ?? "not found",
-        change: "1.20" 
+        change: "1.20",
+        products: [
+            { 
+                id: 1,
+                name: "Esparguete",
+                brand: "Milanesa"
+             },
+             { 
+                id: 2,
+                name: "Fiambre",
+                brand: "Campofrio"
+             },
+             { 
+                id: 3,
+                name: "Manteiga",
+                brand: "Planta"
+             }
+        ]
     });
     next();
 });
