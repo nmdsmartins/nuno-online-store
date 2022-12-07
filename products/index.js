@@ -19,6 +19,11 @@ app.get("/", (req, res, next) => {
                 id: 3,
                 name: "Manteiga",
                 brand: "Planta"
+             },
+             { 
+                id: 4,
+                name: "Leite",
+                brand: "Pingo Doce"
              }
         ]
     });
