@@ -35,6 +35,6 @@ app.get("/", (req, res, next) => {
     next();
 });
 
-app.listen(3090, () => {
+app.listen(5002, () => {
     console.log("Server running on port 3090, wating for requests....");
 });

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nols-shopping-cart-ms 
+spec:
+  selector:
+    matchLabels:
+      app: nols-shopping-cart-ms
+  template:
+    metadata:
+      labels:
+        app: nols-shopping-cart-ms
+    spec:
+      containers:
+      - name: nols-shopping-cart-ms
+        image: nmdsmartins/nols-shopping-cart:1.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000

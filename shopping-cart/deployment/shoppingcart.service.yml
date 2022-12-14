@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nols-shopping-cart-ms
+spec:
+  selector:
+    app: nols-shopping-cart-ms
+  ports:
+  - port: 5000
+    targetPort: 5000
