@@ -28,6 +28,12 @@ router.get('/health', (req, res) => {
 *    add:
 *      summary: Adds a new item to the shopping cart
 *      operationId: Add to Cart
+       parameters:
+        - in: path
+          name: key
+          schema:
+            type: string
+          required: true
 *      tags: [ Item, Cart ]
 *      responses:
         200:

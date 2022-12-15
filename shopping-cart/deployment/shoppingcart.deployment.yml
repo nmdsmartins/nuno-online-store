@@ -13,10 +13,16 @@ spec:
     spec:
       containers:
       - name: nols-shopping-cart-ms
-        image: nmdsmartins/nols-shopping-cart:1.0.0
+        image: nmdsmartins/nols-shopping-cart:1.0.5
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
         - containerPort: 5000
+        env:
+        - name: REDIS_URL
+          valueFrom:
+            configMapKeyRef:
+              name: redis-config
+              key: redis-url

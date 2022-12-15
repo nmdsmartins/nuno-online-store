@@ -1,10 +1,13 @@
 var Cart = require('../entities/cart').Cart;
 var Item = require('../entities/cart').Item;
 var redis = require('redis');
-
+var redis_url = process.env.REDIS_URL;
 var initRedis = function(){
-    var client = redis.createClient();
+    var client = redis.createClient({
+        url: `redis://${redis_url}:6379`
+    });
     client.on('error', (err) => console.log('Redis Client Error', err));
+    
     return client;
 }
 
