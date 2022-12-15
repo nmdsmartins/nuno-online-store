@@ -13,10 +13,10 @@ spec:
     spec:
       containers:
         - name: nols-products-ms
-          image: nmdsmartins/nols-products:1.0.79
+          image: nmdsmartins/nols-products:1.0.80
           resources:
             limits:
               memory: 128Mi
               cpu: 500m
           ports:
-            - containerPort: 3090
+            - containerPort: 5002

@@ -8,6 +8,5 @@ spec:
     app: nols-products-ms
   ports:
   - protocol: TCP
-    port: 3090
-    targetPort: 3090
-    nodePort: 30001
+    port: 5002
+    targetPort: 5002
